@@ -12071,23 +12071,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\onbek\\.nuget\\packages\\": {},
-    "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\ma-do\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\onbek\\source\\repos\\ProjectSmoothboard23\\ProjectSmoothboard23\\ProjectSmoothboard23.csproj",
+      "projectUniqueName": "C:\\Users\\ma-do\\Source\\Repos\\onbekende\\smoothboards\\ProjectSmoothboard23\\ProjectSmoothboard23\\ProjectSmoothboard23.csproj",
       "projectName": "ProjectSmoothboard23",
-      "projectPath": "C:\\Users\\onbek\\source\\repos\\ProjectSmoothboard23\\ProjectSmoothboard23\\ProjectSmoothboard23.csproj",
-      "packagesPath": "C:\\Users\\onbek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\onbek\\source\\repos\\ProjectSmoothboard23\\ProjectSmoothboard23\\obj\\",
+      "projectPath": "C:\\Users\\ma-do\\Source\\Repos\\onbekende\\smoothboards\\ProjectSmoothboard23\\ProjectSmoothboard23\\ProjectSmoothboard23.csproj",
+      "packagesPath": "C:\\Users\\ma-do\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ma-do\\Source\\Repos\\onbekende\\smoothboards\\ProjectSmoothboard23\\ProjectSmoothboard23\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "c:\\program files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\onbek\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ma-do\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
