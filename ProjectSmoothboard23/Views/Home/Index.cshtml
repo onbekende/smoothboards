@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ProjectSmoothboard23.Models.Product>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h1>Welkom bij Smoothboards</h1>
+
+<div class="container">
+    <h2>Producten voor u</h2>
+    <div class="cards row">
+        @foreach (var item in Model.Take(3))
+        {
+            <div class="card col-sm">
+                <img src="https://via.placeholder.com/150" alt="Alternate Text" class="card-img-top" />
+                <div class="card-body">
+                    <h3 class="card-title">@Html.DisplayFor(modelItem => item.productname)</h3>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.description)</p>
+                    <a class="card-link" asp-controller="Products" asp-action="Details" asp-route-id="@item.productid">Details</a>
+                </div>
+            </div>
+        }
+    </div>
+    <h2>Net binnen</h2>
+    <div class="cards row">
+        @foreach (var item in Model.Take(3))
+        {
+            <div class="card col-sm">
+                <img src="https://via.placeholder.com/150" alt="Alternate Text" class="card-img-top" />
+                <div class="card-body">
+                    <h3 class="card-title">@Html.DisplayFor(modelItem => item.productname)</h3>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.description)</p>
+                    <a class="card-link" asp-controller="Products" asp-action="Details" asp-route-id="@item.productid">Details</a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
