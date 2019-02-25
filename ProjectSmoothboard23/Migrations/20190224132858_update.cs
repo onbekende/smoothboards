@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProjectSmoothboard23.Migrations
 {
-    public partial class Initial : Migration
+    public partial class update : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,7 +44,7 @@ namespace ProjectSmoothboard23.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     name = table.Column<string>(nullable: true),
                     lastname = table.Column<string>(nullable: true),
-                    gender = table.Column<int>(nullable: false),
+                    gender = table.Column<string>(nullable: true),
                     country = table.Column<string>(nullable: true),
                     email = table.Column<string>(nullable: true)
                 },

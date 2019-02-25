@@ -60,7 +60,7 @@ namespace ProjectSmoothboard23.Migrations
 
                     b.Property<string>("email");
 
-                    b.Property<int>("gender");
+                    b.Property<string>("gender");
 
                     b.Property<string>("lastname");
 

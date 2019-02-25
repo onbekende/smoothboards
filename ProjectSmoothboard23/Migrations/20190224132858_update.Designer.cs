@@ -9,8 +9,8 @@ using ProjectSmoothboard23.Models;
 namespace ProjectSmoothboard23.Migrations
 {
     [DbContext(typeof(SmoothboardDBContext))]
-    [Migration("20190222093401_Initial")]
-    partial class Initial
+    [Migration("20190224132858_update")]
+    partial class update
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -62,7 +62,7 @@ namespace ProjectSmoothboard23.Migrations
 
                     b.Property<string>("email");
 
-                    b.Property<int>("gender");
+                    b.Property<string>("gender");
 
                     b.Property<string>("lastname");
 
