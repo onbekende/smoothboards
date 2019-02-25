@@ -36,15 +36,6 @@ namespace ProjectSmoothboard23.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> Newsletter([Bind("id,name,lastname,gender,country,email")] Subscription subscription)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(subscription);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(subscription);
-        }
+        
     }
 }

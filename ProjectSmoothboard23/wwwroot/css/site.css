@@ -54,3 +54,31 @@ body {
   height: 60px;
   line-height: 60px; /* Vertically center the text there */
 }
+
+.nav-item {
+    position: relative;
+    z-index:1;
+}
+
+    .nav-item::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        z-index: 0;
+        height: 0;
+        transition: .3s all ease;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+.nav {
+    height: 100%;
+    overflow: hidden;
+}
+
+.nav-item:hover::before {
+    z-index: -1;
+    bottom: 0;
+    height: 100%;
+    background: #dee2e6;
+}
