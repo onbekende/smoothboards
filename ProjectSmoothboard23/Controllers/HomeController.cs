@@ -24,9 +24,27 @@ namespace ProjectSmoothboard23.Controllers
             return View(await _context.Product.ToListAsync());
         }
 
-        public IActionResult Privacy()
+
+
+        public IActionResult Contact()
         {
             return View();
+        }
+
+
+        public IActionResult Newsletter()
+        {
+            return View();
+        }
+        public async Task<IActionResult> Newsletter([Bind("id,name,lastname,gender,country,email")] Subscription subscription)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(subscription);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(subscription);
         }
     }
 }
