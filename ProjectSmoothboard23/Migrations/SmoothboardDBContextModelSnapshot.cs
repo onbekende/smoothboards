@@ -26,6 +26,8 @@ namespace ProjectSmoothboard23.Migrations
 
                     b.Property<string>("answer");
 
+                    b.Property<string>("category");
+
                     b.Property<string>("question");
 
                     b.HasKey("id");
