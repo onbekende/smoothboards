@@ -36,6 +36,10 @@ namespace ProjectSmoothboard23.Controllers
         {
             return View();
         }
-        
+
+        public async Task<IActionResult> Products()
+        {
+            return View(await _context.Product.ToListAsync());
+        }
     }
 }

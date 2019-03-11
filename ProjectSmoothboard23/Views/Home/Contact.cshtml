@@ -13,7 +13,7 @@
 
 <div class="row ">
     <div class="col-md-6">
-        <form action="/" method="post">
+        <form asp-controller="FAQSController" asp-action="Create" method="post">
             <div class="form-group">
                 <label class="control-label">Naam</label>
                 <input class="form-control" />
@@ -34,7 +34,7 @@
                 <label class="control-label">Telefoonnummer</label>
                 <input class="form-control" />
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button class="mailer" type="submit" class="btn btn-primary">Submit</button>
         </form>
   </div>
     
