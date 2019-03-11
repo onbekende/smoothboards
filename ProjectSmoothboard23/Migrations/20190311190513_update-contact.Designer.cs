@@ -9,8 +9,8 @@ using ProjectSmoothboard23.Models;
 namespace ProjectSmoothboard23.Migrations
 {
     [DbContext(typeof(SmoothboardDBContext))]
-    [Migration("20190224132858_update")]
-    partial class update
+    [Migration("20190311190513_update-contact")]
+    partial class updatecontact
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,8 @@ namespace ProjectSmoothboard23.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("answer");
+
+                    b.Property<string>("category");
 
                     b.Property<string>("question");
 
