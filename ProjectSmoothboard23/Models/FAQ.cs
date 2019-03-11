@@ -10,5 +10,6 @@ namespace ProjectSmoothboard23.Models
         public int id { get; set; }
         public string question { get; set; }
         public string answer { get; set; }
+        public string category { get; set; }
     }
 }
