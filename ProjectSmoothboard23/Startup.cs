@@ -37,7 +37,7 @@ namespace ProjectSmoothboard23
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddDbContext<SmoothboardDBContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("SmoothboardDBContext")));
+                    options.UseSqlServer(Configuration.GetConnectionString("SmoothboardDB")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

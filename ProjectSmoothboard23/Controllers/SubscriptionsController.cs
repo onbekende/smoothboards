@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mail;
+using System.Net;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjectSmoothboard23.Models;
@@ -59,6 +61,34 @@ namespace ProjectSmoothboard23.Controllers
             {
                 _context.Add(subscription);
                 await _context.SaveChangesAsync();
+                //SMTP server en poort 587
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.Credentials = new NetworkCredential("smoothboardinfo@gmail.com", "Smoothboard012!");
+                smtpClient.EnableSsl = true;
+                //Gmail werkt met Securityprotocol TLS
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
+                //smtpClient.UseDefaultCredentials = false;
+
+                MailMessage mail = new MailMessage();
+                mail.Body = "Beste " + subscription.name+ " " + subscription.lastname + ", <br/>" +
+                     "<br/>" +
+                     " Dank je voor het inschrijven bij de SmoothBoards.<br/>" +
+                     "Uw krijgt iedere week op vrijdag een vernieuwde nieuwsbrief voor leuke updates.<br/>" +
+                     "<br/>" +
+                     "Wilt u geen nieuwsbrieven klik dan <a href='https://localhost:44380/Subscriptions/Delete/" + subscription.id+ "'>hier</a>!<br/>" +
+                     "<br/>" +
+                     "Met vriendelijke groet,<br/" +
+                     "<br/>" +
+                     "Het SmoothBoards team" +
+                     "";
+                mail.Subject = "Inschrijving Nieuwsbrief";
+                mail.IsBodyHtml = true;
+                //Setting From , To and CC
+                mail.From = new MailAddress("smoothboardinfo@gmail.com", "Smoothboard styler NO-REPLY");
+                mail.To.Add(new MailAddress(subscription.email));
+
+                smtpClient.Send(mail);
                 return RedirectToAction(nameof(Index));
             }
             return View(subscription);
