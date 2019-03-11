@@ -41,5 +41,22 @@ namespace ProjectSmoothboard23.Controllers
         {
             return View(await _context.Product.ToListAsync());
         }
+
+        public async Task<IActionResult> Product(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _context.Product
+                .FirstOrDefaultAsync(m => m.productid == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View("Productpage", product);
+        }
     }
 }

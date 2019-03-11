@@ -1,6 +1,8 @@
 ﻿
 @model IEnumerable<ProjectSmoothboard23.Models.Product>
 
+<h1>Onze producten</h1>
+
 <div class="container d-flex p-2 bd-highlight flex-wrap">
     @foreach (var item in Model)
     { 
@@ -8,7 +10,7 @@
             <img src="https://via.placeholder.com/150" alt="Alternate Text" class="card-img-top" />
             <div class="card-body flex-column d-flex justify-content-center">
                 <h3 class="card-title">@Html.DisplayFor(modelItem => item.productname)</h3>
-                <a class="card-link" asp-controller="Products" asp-action="Details" asp-route-id="@item.productid">Details</a>
+                <a class="card-link" asp-controller="home" asp-action="Product" asp-route-id="@item.productid">Details</a>
             </div>
         </div>
     }
