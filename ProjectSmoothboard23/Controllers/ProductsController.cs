@@ -64,6 +64,19 @@ namespace ProjectSmoothboard23.Controllers
             return View(product);
         }
 
+        [HttpPost]
+        [ActionName("Simple")]
+        public async Task<IActionResult> Maildata()
+        {
+            int productid = Convert.ToInt32(Request.Form["productid"]);
+            string naam =  Request.Form["name"];
+            string telnr = Request.Form["telnr"];
+
+            Console.WriteLine(telnr);
+
+            return View("Products");
+        }
+
         // GET: Products/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

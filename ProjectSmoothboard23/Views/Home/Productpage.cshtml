@@ -24,5 +24,18 @@
         </dd>
     </dl>
 
-    <form action="/" method="post"></form>
+    <form asp-action="Maildata" method="post">
+        <input type="hidden" name="productid" value="@Model.productid" />
+        <div class="form-group">
+            <label class="control-label"></label>
+            <input name="naam" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="control-label"></label>
+            <input name="telnr" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
 </div>
