@@ -9,8 +9,8 @@ using ProjectSmoothboard23.Models;
 namespace ProjectSmoothboard23.Migrations
 {
     [DbContext(typeof(SmoothboardDBContext))]
-    [Migration("20190311125914_updatedatabase")]
-    partial class updatedatabase
+    [Migration("20190312093217_Mitchell")]
+    partial class Mitchell
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,27 @@ namespace ProjectSmoothboard23.Migrations
                 .HasAnnotation("ProductVersion", "2.2.1-servicing-10028")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("ProjectSmoothboard23.Models.Contact", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("address");
+
+                    b.Property<string>("city");
+
+                    b.Property<string>("email");
+
+                    b.Property<string>("name");
+
+                    b.Property<string>("phonenumber");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Contact");
+                });
 
             modelBuilder.Entity("ProjectSmoothboard23.Models.FAQ", b =>
                 {

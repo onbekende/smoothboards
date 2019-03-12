@@ -18,6 +18,27 @@ namespace ProjectSmoothboard23.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("ProjectSmoothboard23.Models.Contact", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("address");
+
+                    b.Property<string>("city");
+
+                    b.Property<string>("email");
+
+                    b.Property<string>("name");
+
+                    b.Property<string>("phonenumber");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Contact");
+                });
+
             modelBuilder.Entity("ProjectSmoothboard23.Models.FAQ", b =>
                 {
                     b.Property<int>("id")
