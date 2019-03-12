@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProjectSmoothboard23.Models;
+using System.Net.Mail;
+using System.Net;
 
 namespace ProjectSmoothboard23.Controllers
 {
@@ -65,16 +67,46 @@ namespace ProjectSmoothboard23.Controllers
         }
 
         [HttpPost]
-        [ActionName("Simple")]
         public async Task<IActionResult> Maildata()
         {
             int productid = Convert.ToInt32(Request.Form["productid"]);
             string naam =  Request.Form["name"];
             string telnr = Request.Form["telnr"];
+            string productnaam = Request.Form["productname"];
+            string email = Request.Form["email"];
 
-            Console.WriteLine(telnr);
+            if (ModelState.IsValid)
+            {
+                //SMTP server en poort 587
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.Credentials = new NetworkCredential("smoothboardinfo@gmail.com", "Smoothboard012!");
+                smtpClient.EnableSsl = true;
+                //Gmail werkt met Securityprotocol TLS
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
+                //smtpClient.UseDefaultCredentials = false;
 
-            return View("Products");
+                MailMessage mail = new MailMessage();
+                mail.Body = "Beste Sean,<br/>" +
+                     "<br/>" + naam +
+                     " Heeft een vraag over " + productnaam + ".<br/>" +
+                     "Neem contact op via mail of per telefoon <br/>" +
+                     telnr + "<br/>" +
+                     "Met vriendelijke groet,<br/" +
+                     "<br/>" +
+                     naam +
+                     "";
+                mail.Subject = "Inschrijving Nieuwsbrief";
+                mail.IsBodyHtml = true;
+                //Setting From , To and CC
+                mail.From = new MailAddress("smoothboardinfo@gmail.com", "Smoothboard styler NO-REPLY");
+                mail.To.Add(new MailAddress("smoothboardinfo@gmail.com"));
+                mail.CC.Add(new MailAddress(email));
+
+                smtpClient.Send(mail);
+                
+            }
+            return RedirectToAction("Products", "Home");
         }
 
         // GET: Products/Edit/5
