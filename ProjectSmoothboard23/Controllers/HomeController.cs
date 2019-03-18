@@ -61,7 +61,7 @@ namespace ProjectSmoothboard23.Controllers
 
         public async Task<IActionResult> FAQ()
         {
-            return View();
+            return View(await _context.FAQ.ToListAsync());
         }
     }
 }
