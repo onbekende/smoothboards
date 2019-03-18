@@ -7,5 +7,11 @@
 <h1>FAQ</h1>
 
 <div class="container">
-
+    @foreach (var item in Model)
+    {
+        <div class="card-body flex-column d-flex justify-content-center">
+            <h3 class="card-title">@Html.DisplayFor(modelItem => item.category)</h3>
+            <a class="card-link" asp-controller="home" asp-action="FAQ" asp-route-id="@item.category">Details</a>
+        </div>
+    }
 </div>
