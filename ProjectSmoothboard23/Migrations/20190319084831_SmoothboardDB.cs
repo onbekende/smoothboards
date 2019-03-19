@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProjectSmoothboard23.Migrations
 {
-    public partial class Mitchell : Migration
+    public partial class SmoothboardDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

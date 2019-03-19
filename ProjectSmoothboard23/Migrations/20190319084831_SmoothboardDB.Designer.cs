@@ -9,8 +9,8 @@ using ProjectSmoothboard23.Models;
 namespace ProjectSmoothboard23.Migrations
 {
     [DbContext(typeof(SmoothboardDBContext))]
-    [Migration("20190312093217_Mitchell")]
-    partial class Mitchell
+    [Migration("20190319084831_SmoothboardDB")]
+    partial class SmoothboardDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
