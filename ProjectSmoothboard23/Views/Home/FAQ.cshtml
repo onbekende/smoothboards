@@ -24,17 +24,17 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.question)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.answer)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.category)
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.question)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.answer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category)
+            </td>
+        </tr>
         }
     </tbody>
 </table>
