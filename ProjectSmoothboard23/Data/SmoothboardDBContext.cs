@@ -21,5 +21,7 @@ namespace ProjectSmoothboard23.Models
         public DbSet<ProjectSmoothboard23.Models.Subscription> Subscription { get; set; }
 
         public DbSet<ProjectSmoothboard23.Models.Contact> Contact { get; set; }
+
+        public DbSet<ProjectSmoothboard23.Models.Inlog> Inlog { get; set; }
     }
 }
