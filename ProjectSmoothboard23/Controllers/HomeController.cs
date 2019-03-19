@@ -63,5 +63,10 @@ namespace ProjectSmoothboard23.Controllers
         {
             return View(await _context.FAQ.ToListAsync());
         }
+
+        public IActionResult Design()
+        {
+            return View();
+        }
     }
 }

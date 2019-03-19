@@ -3,10 +3,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ProjectSmoothboard23.Migrations
 {
-    public partial class updatedatabase : Migration
+    public partial class createdb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Design",
+                columns: table => new
+                {
+                    id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    name = table.Column<string>(nullable: true),
+                    location = table.Column<string>(nullable: true),
+                    email = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Design", x => x.id);
+                });
+
             migrationBuilder.CreateTable(
                 name: "FAQ",
                 columns: table => new
@@ -57,6 +72,9 @@ namespace ProjectSmoothboard23.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Design");
+
             migrationBuilder.DropTable(
                 name: "FAQ");
 
