@@ -94,6 +94,9 @@ namespace ProjectSmoothboard23.Controllers
             return View(subscription);
         }
 
+       
+
+
         // GET: Subscriptions/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {

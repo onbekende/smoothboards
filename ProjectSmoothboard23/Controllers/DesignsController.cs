@@ -9,6 +9,21 @@ using System.IO;
 using ProjectSmoothboard23.Models;
 using Microsoft.AspNetCore.Http;
 using System.Threading;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+using System.Web.Http.Description;
+using Newtonsoft.Json.Linq;
+
 
 namespace ProjectSmoothboard23.Controllers
 {
@@ -70,16 +85,10 @@ namespace ProjectSmoothboard23.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(IFormFile file, [Bind("id,name,location,email")] Design design)
+        public async Task<IActionResult> Create(HttpPostedFileBase file, [Bind("id,name,location,email")] Design design)
         {
             string image = Request.Form["image"];
-            var filePath = Path.GetTempFileName();
-
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await file.CopyToAsync(stream);
-            }
-
+            
             /*if (Request.Files.Count > 0)
             {
                 var file = Request.Files[0];
