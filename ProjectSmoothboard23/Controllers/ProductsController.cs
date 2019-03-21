@@ -88,17 +88,16 @@ namespace ProjectSmoothboard23.Controllers
 
                 MailMessage mail = new MailMessage();
                 mail.Body = 
-                    "<header style='height: 30px; background: #EAEAEA; width: 100%; text-align: center;'>Smoothboard Product informatie</header>" + 
-                    "<h3>Beste Sean,<br/>" +
-                    "<br/>" + naam +
+                    "<header style='font-size:25px; height: 30px; background: #EAEAEA; width: 100%; text-align: center;'>Smoothboard Product informatie</header>" + 
+                    "<h3>Beste Sean,<br/></h3>" +
+                    "<br/><p style='font-size: 18px; color: #DD6E42;'>" + naam +
                     " Heeft een vraag over <strong>" + productnaam + "</strong>.<br/>" +
-                    "<img src='https://via.placeholder.com/150' width='65px'>" +
                     "Neem contact op via mail of per telefoon <br/>" +
-                    telnr + "<br/><br/>" +
+                    telnr + "<br/><br/></p>" +
                     "Met vriendelijke groet,<br/" +
                     "<br/>" +
                     naam +
-                    "<footer style='color: #DD6E42; width: 100%; text-align:center; background: #EAEAEA; height: 30px; '>Smoothboards</footer>";
+                    "<footer style='font-size:25px; color: #DD6E42; width: 100%; text-align:center; background: #EAEAEA; height: 30px; '>Smoothboards</footer>";
                 mail.Subject = "Inschrijving Nieuwsbrief";
                 mail.IsBodyHtml = true;
                 //Setting From , To and CC
