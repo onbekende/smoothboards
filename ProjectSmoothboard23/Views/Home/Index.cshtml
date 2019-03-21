@@ -21,7 +21,7 @@
                 <div class="card-body">
                     <h3 class="card-title">@Html.DisplayFor(modelItem => item.productname)</h3>
                     <p class="card-text">@Html.DisplayFor(modelItem => item.description)</p>
-                    <a class="card-link" asp-controller="Products" asp-action="Details" asp-route-id="@item.productid">Details</a>
+                    <a class="card-link" asp-controller="home" asp-action="Product" asp-route-id="@item.productid">Details</a>
                 </div>
             </div>
         }
