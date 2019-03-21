@@ -23,5 +23,6 @@ namespace ProjectSmoothboard23.Models
         public DbSet<ProjectSmoothboard23.Models.Contact> Contact { get; set; }
 
         public DbSet<ProjectSmoothboard23.Models.Inlog> Inlog { get; set; }
+        public DbSet<ProjectSmoothboard23.Models.Design> Design { get; set; }
     }
 }

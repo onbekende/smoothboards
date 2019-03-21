@@ -8,22 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.IO;
 using ProjectSmoothboard23.Models;
 using Microsoft.AspNetCore.Http;
-using System.Threading;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using System.Web.Http.Description;
-using Newtonsoft.Json.Linq;
-
+using System.Web;
 
 namespace ProjectSmoothboard23.Controllers
 {
@@ -66,48 +51,25 @@ namespace ProjectSmoothboard23.Controllers
             return View();
         }
 
-        public interface IFormFile
-        {
-            string ContentType { get; }
-            string ContentDisposition { get; }
-            IHeaderDictionary Headers { get; }
-            long Length { get; }
-            string Name { get; }
-            string FileName { get; }
-            Stream OpenReadStream();
-            void CopyTo(Stream target);
-            Task CopyToAsync(Stream target);
-        }
-
-
         // POST: Designs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(HttpPostedFileBase file, [Bind("id,name,location,email")] Design design)
+        public async Task<IActionResult> Create(IFormFile file, [Bind("id,name,location,email")] Design design)
         {
             string image = Request.Form["image"];
-            
-            /*if (Request.Files.Count > 0)
-            {
-                var file = Request.Files[0];
 
-                if (file != null && file.ContentLength > 0)
-                {
-                    var fileName = Path.GetFileName(file.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
-                    file.SaveAs(path);
-                }
-            }*/
+            Console.WriteLine(image);
+            var fileName = Path.GetFileName(file.FileName);
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", fileName);
 
-
-            if (ModelState.IsValid)
-            {
-                _context.Add(design);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
+            /* if (ModelState.IsValid)
+             {
+                 _context.Add(design);
+                 await _context.SaveChangesAsync();
+                 return RedirectToAction(nameof(Index));
+             }*/
 
             return View(design);
         }
